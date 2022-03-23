@@ -27,4 +27,7 @@ router.get("/log-out", (req,res) => {
     req.logOut();
     res.redirect("/signin")
 })
+router.get("/", isNotLoggedIn, (req, res) => {
+    res.render("auth/signin")})
+    
 module.exports = router
