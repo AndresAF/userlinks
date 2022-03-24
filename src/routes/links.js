@@ -21,10 +21,9 @@ router.post('/add', async (req, res) => {
     res.redirect('/links');
 });
 
-router.get('/', isLoggedIn, async (req, res) => {
-    const links = await pool.query('SELECT * FROM links WHERE user_id = ?', [req.user.id]);
-    res.render('links/list', { links });
-});
+ router.get('/', isLoggedIn,  (req, res) => {
+   res.send("hola")
+ });
 
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
